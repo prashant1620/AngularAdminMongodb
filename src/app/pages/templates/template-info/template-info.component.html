@@ -1,0 +1,352 @@
+<!--<nb-card>
+  <nb-card-body>
+    <nb-stepper  orientation="vertical">
+      <nb-step [stepControl]="firstForm" label="First step">
+        <form [formGroup]="firstForm"  class="step-container" > 
+            <div class="form-group" [ngClass]="{'has-error':!firstForm.controls['firstCtrl1'].valid && firstForm.controls['firstCtrl1'].touched}">      
+          <label>EmployeeName</label>
+            <div class="input-group">
+              <input type="text"
+               placeholder="Enter your name"  class="form-control" [formControl]="firstForm.controls['firstCtrl1']" required>
+              </div>
+              <div *ngIf="firstForm.controls['firstCtrl1'].hasError('required') && firstForm.controls['firstCtrl1'].touched" class="alert alert-danger">You must include a employee name.</div>
+              </div>
+
+              <div class="form-group" [ngClass]="{'has-error':!firstForm.controls['firstCtrl2'].valid && firstForm.controls['firstCtrl2'].touched}">
+              <label>Employee Address</label>
+          <div class="input-group">
+             <input type="text" placeholder="Enter your Last Name" class="form-control" [formControl]="firstForm.controls['firstCtrl2']"  required>
+                </div>
+                <div *ngIf="firstForm.controls['firstCtrl2'].hasError('required') && firstForm.controls['firstCtrl2'].touched" class="alert alert-danger">You must include a employee address.</div>          
+                </div>
+
+                <div class="form-group" [ngClass]="{'has-error':!firstForm.controls['firstCtrl3'].valid && firstForm.controls['firstCtrl3'].touched}">
+                    <label>Employee Location:</label>    
+                   <select  [formControl]="firstForm.controls['firstCtrl3']" #firstCtrl3>
+                        <option  disabled>Select Employee Location</option>
+                    <option *ngFor="let e of employee" [ngValue]="e.employeeName">
+                          {{ e.employeeLocation }}
+                         </option>
+                     </select>
+                       <div *ngIf="firstForm.controls['firstCtrl3'].hasError('required') && firstForm.controls['firstCtrl3'].touched" class="alert alert-danger">You must include a employee location.</div>
+                    </div>
+              <button nbButton disabled nbStepperPrevious>prev</button>   
+              <button nbButton nbStepperNext (click)="onFirstSubmit()">next</button>
+            
+        </form>
+        <div *ngIf="firstForm.invalid">
+                <span>Pls filed the all reqiured fileds</span> 
+        </div>
+       
+      </nb-step>
+      <nb-step [stepControl]="secondForm" label="Second step">
+          
+          <form [formGroup]="secondForm"  class="step-container" >
+              <p class="lorem">
+                  Please enter the following detail
+                  </p>
+              <div class="form-group" [ngClass]="{'has-error':!secondForm.controls['secondCtrl1'].valid && secondForm.controls['secondCtrl1'].touched}">         
+            <label>Video Url</label>  
+            <div class="input-group">
+                  <input type="text" placeholder="Enter Video Url" class="form-control" [formControl]="secondForm.controls['secondCtrl1']" required>
+                </div>
+                <label>Image Url</label>
+                <div class="input-group" >
+                 
+                  
+<span class="fileName">{{filename}}</span><input type="file" hidden [(ngModel)]="filename" class="form-control" [formControl]="secondForm.controls['secondCtrl1']" required accept="images/*"/>
+                  
+              
+                   <img class="addButton"   src="../../../../assets/images/plusicon.svg" (click)="selectFile($event)" />
+            <div style="text-align:center">
+                <fa-icon  [icon]="faPlus" (click)="selectFile($event)" ></fa-icon>
+            </div>
+        
+                </div>
+        </div>
+        <label>Start Date</label>
+        <div class="DatePicker">
+              
+                <input nbInput id="time" placeholder="Form Picker" [nbDatepicker]="formpicker" style=" width: 236px;height: 50px;" >
+                <nb-datepicker #formpicker></nb-datepicker>
+                   
+        </div>
+       <div class="form-group" [ngClass]="{'has-error':!secondForm.controls['secondCtrl2'].valid && secondForm.controls['secondCtrl2'].touched}">
+            <label>Description</label>    
+          <div class="input-group">
+            <input type="text" placeholder="Description" class="form-control" [formControl]="secondForm.controls['secondCtrl2']">
+            <div *ngIf="secondForm.controls['secondCtrl2'].hasError('required') && secondForm.controls['secondCtrl2'].touched" class="alert alert-danger">You must include a Description </div>
+        </div>
+        </div>
+                <button nbButton  nbStepperPrevious>prev</button>   
+                <button nbButton nbStepperNext (click)="onSecondSubmit()" >next</button>
+                 
+          </form>
+        </nb-step>
+             <nb-step [stepControl]="thirdForm" label="Third step">
+            <form role="form" #myForm="ngForm" accept-charset="UTF-8" novalidate>
+                <div class="form-group has-feedback" 
+                      [ngClass]="{ 'has-error': myckeditor.invalid && myckeditor.touched }">
+                  <ckeditor [(ngModel)]="text" 
+                            #myckeditor="ngModel"
+                            name="myckeditor"
+                            required
+                            [config]="ckeConfig" 
+                            debounce="500" 
+                            (change)="onChange($event)">
+                  </ckeditor>
+                  <div *ngIf="myckeditor.invalid && myckeditor.touched" class="help-block">Required field.</div>
+                </div>
+               
+                </form>
+                <button nbButton  nbStepperPrevious>prev</button>   
+                <button nbButton nbStepperNext  >Confirm</button>
+          </nb-step>
+
+    </nb-stepper>
+  </nb-card-body>
+  </nb-card>
+  <pre>{{firstForm.value | json}}</pre>
+  <pre>{{secondForm.value | json}}</pre>-->
+  
+  
+
+
+ 
+
+
+
+
+<!--<nb-card>
+  <nb-card-body>
+    <nb-stepper  orientation="vertical">
+      <nb-step [stepControl]="firstForm" label="First step">
+        <form [formGroup]="firstForm"  class="step-container"> 
+                <div class="form-group">
+                        <label>Employee Name</label>
+                        <input type="text" formControlName="firstCtrl1" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.firstCtrl1.errors }" />
+                        <div *ngIf="submitted && f.firstCtrl1.errors" class="invalid-feedback">
+                                <div *ngIf="f.firstCtrl1.errors.required">First Name is required</div>
+                            </div>
+                    </div>
+                    <div class="form-group">
+                            <label>Employee Address</label>
+                            <input type="text" formControlName="firstCtrl2" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.firstCtrl2.errors }" />
+                            <div *ngIf="submitted && f.firstCtrl2.errors" class="invalid-feedback">
+                                    <div *ngIf="f.firstCtrl2.errors.required">employee Address is required</div>
+                                </div>  
+                        </div>
+
+        <button nbButton disabled nbStepperPrevious>prev</button>   
+        <button nbButton nbStepperNext (click)="onFirstSubmit()">next</button>
+      
+          
+        </form>
+    </nb-step>
+    
+</nb-stepper>
+</nb-card-body>
+</nb-card>-->
+
+
+
+<!--<nb-card>
+        <nb-card-body>
+          <nb-stepper  orientation="vertical">
+            <nb-step [stepControl]="firstForm" label="First step">
+              <form [formGroup]="firstForm"  class="step-container">
+                  <label>Employee Name</label>
+                    <div class="input-group">
+                            <input type="text" placeholder="Enter your name" class="form-control" formControlName="firstCtrl1"
+                                   [ngClass]="{'form-control-danger': firstForm.invalid && (firstForm.dirty || firstForm.touched)}">
+                          </div>
+                          <label>Employee Address</label>
+                          <div class="input-group">
+                                <input type="text" placeholder="Enter address" class="form-control" formControlName="firstCtrl2"
+                                       [ngClass]="{'form-control-danger': firstForm.invalid && (firstForm.dirty || firstForm.touched)}">
+                              </div>
+                              <label>Employee Location</label>
+                              <div class="input-group">
+                                    <input type="text" placeholder="Enter your location" class="form-control" formControlName="firstCtrl3"
+                                           [ngClass]="{'form-control-danger': firstForm.invalid && (firstForm.dirty || firstForm.touched)}">
+                                  </div>
+             <button nbButton disabled nbStepperPrevious>prev</button>   
+              <button nbButton nbStepperNext (click)="onFirstSubmit()">next</button>
+              </form>
+              <div *ngIf="firstForm.invalid">
+                    <span>Pls filed the all reqiured fileds</span> 
+            </div>
+           
+            </nb-step>
+        </nb-stepper>
+    </nb-card-body>
+</nb-card>-->
+
+
+
+
+
+<nb-card>
+        <nb-card-body>
+          <nb-stepper  orientation="vertical">
+            <nb-step [stepControl]="firstForm"  label="First step">
+              <form [formGroup]="firstForm" (ngSubmit)="onFirstSubmit()"  class="step-container"  #form1="ngForm" > 
+             <label>EmployeeName</label>
+                  <div class="input-group">
+                    <input type="text" [(ngModel)]='firstCtrl1'
+                     placeholder="Enter your name"  class="form-control" formControlName="firstCtrl1" required
+                     [ngClass]="{'form-control-danger': firstForm.controls['firstCtrl1'].invalid && (firstForm.controls['firstCtrl1'].dirty || firstForm.controls['firstCtrl1'].touched)}">
+                    </div>
+            <label>Employee Address</label>
+                <div class="input-group">
+                   <input type="text" [(ngModel)]='firstCtrl2' placeholder="Enter your Last Name" class="form-control" formControlName="firstCtrl2"  required
+                   [ngClass]="{'form-control-danger': firstForm.controls['firstCtrl2'].invalid && (firstForm.controls['firstCtrl2'].dirty || firstForm.controls['firstCtrl2'].touched)}">
+                      </div>
+                     <label>Employee Location:</label>    
+                         <select [formControl]="firstForm.controls['firstCtrl3']" #firstCtrl3
+                         [ngClass]="{'form-control-danger': firstForm.controls['firstCtrl3'].invalid && (firstForm.controls['firstCtrl3'].dirty || firstForm.controls['firstCtrl3'].touched)}" >
+                              <option  disabled>Select Employee Location</option>
+                          <option *ngFor="let e of employee" [ngValue]="e.employeeName">
+                                {{ e.employeeLocation }}
+                               </option>
+                           </select> <div>
+             <nb-checkbox [(ngModel)]='firstCtrl4' formControlName="firstCtrl4">Success</nb-checkbox>
+          
+         </div>
+           <button nbButton disabled nbStepperPrevious>prev</button> 
+           <button nbButton nbStepperNext >next</button>
+                    <button nbButton type="submit" [disabled]="!firstForm.valid" >Submit</button>
+            </form>
+              
+             
+           
+             <div *ngIf="!firstForm.valid  else first"  class="alert alert-danger">
+                    <span>Pls filled the All requird filleds</span> 
+           </div>
+
+            
+             <!-- <div #first  *ngIf="firstForm.controls['firstCtrl1'].hasError('required') && firstForm.controls['firstCtrl1'].touched " class="alert alert-danger">
+                    <span>Pls filled the Employee Name</span> 
+              </div>
+              <div #first  *ngIf="firstForm.controls['firstCtrl2'].hasError('required') && firstForm.controls['firstCtrl2'].touched && !marked " class="alert alert-danger">
+                    <span>Pls filled the Employee Address</span> 
+              </div>
+              <div #first  *ngIf="firstForm.hasError('required','firstCtrl3') && firstForm.controls['firstCtrl3'].touched " class="alert alert-danger">
+                    <span>Pls filled the Employee Location</span> 
+              </div>
+              <div  *ngIf="firstForm.hasError('required', 'firstCtrl4') && firstForm.controls['firstCtrl4'].touched " class="danger alert-danger">
+                    <span>Pls click the check box</span> 
+                </div>-->
+ </nb-step>
+            <nb-step [stepControl]="secondForm" label="Second step">
+                    <form [formGroup]="secondForm" (ngSubmit)="onSecondSubmit()" class="step-container" #form2="ngForm" > 
+              
+                            <p class="lorem">
+                                    Please enter the following detail
+                                    </p>
+                                <div class="form-group" [ngClass]="{'has-error':!secondForm.controls['secondCtrl1'].valid && secondForm.controls['secondCtrl1'].touched}">         
+                              <label>Video Url</label>  
+                              <div class="input-group">
+                                    <input type="text" [(ngModel)]='secondCtrl1' placeholder="Enter Video Url" class="form-control" [formControl]="secondForm.controls['secondCtrl1']" required
+                                    [ngClass]="{'form-control-danger': secondForm.controls['secondCtrl1'].invalid && (secondForm.controls['secondCtrl1'].dirty || secondForm.controls['secondCtrl1'].touched)}">
+                                  </div>
+                                  <label>Image Url</label>
+                                  <div class="input-group" >
+                            <span class="fileName">{{filename}}</span><input type="file" hidden [(ngModel)]="filename" class="form-control" [formControl]="secondForm.controls['secondCtrl2']" required accept="images/*"/>
+                             <img class="addButton"   src="../../../../assets/images/plusicon.svg" (click)="selectFile($event)" />
+                            <i class="eva plus-circle-outline"></i>
+                         
+                          </div>
+                          </div>
+                          <label>Start Date</label>
+                          <div class="DatePicker">
+                                <input nbInput id="time"  placeholder="Form Picker" [nbDatepicker]="formpicker" style=" width: 236px;height: 50px;" >
+                                  <nb-datepicker #formpicker></nb-datepicker>
+                                     
+                          </div>
+                         <div class="form-group" [ngClass]="{'has-error':!secondForm.controls['secondCtrl3'].valid && secondForm.controls['secondCtrl3'].touched}">
+                              <label>Description</label>    
+                            <div class="input-group">
+                              <input type="text" [(ngModel)]='secondCtrl3' placeholder="Description" class="form-control" [formControl]="secondForm.controls['secondCtrl3']"
+                              [ngClass]="{'form-control-danger': secondForm.controls['secondCtrl3'].invalid && (secondForm.controls['secondCtrl3'].dirty || secondForm.controls['secondCtrl3'].touched)}">
+                             </div>
+                          </div>
+                                
+                               
+                          <button nbButton  nbStepperPrevious>prev</button>   
+                          
+                          <button nbButton nbStepperNext >Next</button>
+                        
+                    </form>
+                    <div *ngIf="secondForm.invalid else first"  class="alert alert-danger">
+                            <span>Pls filled the all reqiured fileds</span> 
+                    </div>
+      </nb-step>
+      <nb-step [stepControl]="thirdForm" label="Third step"  >
+            <form role="form"   (ngSubmit)="onThirdSubmit()" #form3="ngForm">
+                <div class="form-group has-feedback" 
+                      [ngClass]="{ 'has-error': myckeditor.invalid && myckeditor.touched }">
+                  <ckeditor [(ngModel)]="text" 
+                            #myckeditor="ngModel"
+                            name="myckeditor"
+                            required
+                            [config]="ckeConfig" 
+                            debounce="500" 
+                            (change)="onChange($event)">
+                  </ckeditor>
+                  <div *ngIf="myckeditor.invalid && myckeditor.touched" class="alert alert-danger">Required field.</div>
+                 </div>  
+                
+               
+                </form>
+                <button nbButton  nbStepperPrevious>prev</button>   
+                <button nbButton  type="submit" nbStepperNext (click)="form1.ngSubmit.emit(); form2.ngSubmit.emit();addPreview()" [disabled]="!myckeditor.valid">Confirm</button>
+          </nb-step>
+          <nb-step [stepControl]="thirdForm" label="fourth step" >
+                <h3>Preview Component is created</h3>
+            </nb-step>
+        </nb-stepper>
+    </nb-card-body>
+</nb-card>
+
+
+
+<!--<angular2-date-picker class="form-control"  id="datetimepicker" [(ngModel)]="date" [settings]='settings'  >
+
+</angular2-date-picker>
+
+<label>
+        Date Time Range:
+        <input [owlDateTimeTrigger]="dt10" [owlDateTime]="dt10"
+               [selectMode]="'range'" style=" width: 236px;height: 50px;">
+        <owl-date-time #hour12Timer #dt10></owl-date-time>
+    </label>-->
+    
+    
+    <hr>
+    <!--<div class="container">
+      <h2>Data in Preview Component</h2>
+      <div class="img-fluid img-thumbnail" *ngFor='let preview of previewData'>
+           
+            <body style="font-family:Arial;padding:0px;margin:0px">
+                    <iframe style="width:50%;height:40%" [src]="dom.bypassSecurityTrustResourceUrl(preview.videoUrl)" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe> 
+                    <div style="width:50%;background-color:#f9f9f9;color:#9b9b9b;margin-top:-3px;padding:20px 0;text-align:center;text-transform:uppercase;border-color:#d4d4d4;border-width:3px;border-style:solid;border-left-style:none;border-right-style:none"> 
+                     <b>{{ preview.title }}</b>
+                     </div> <div> <div style="width:49%">
+                     <img style="width:32px;height:32px;float:left" src="../assets/images/date.svg" /> 
+                    <div style="color:#0d71bc;height:31px;float:left;margin-top:6px" id="__date"></div> </div> 
+                    <div style="width:49%;float:left;margin-left:32px">	
+                    <img style="width:32px;height:32px;float:left" src="../assets/images/location.jpg" />
+                    <div style="color:#0d71bc;height:32px;float:left;margin-top:6px" id="__start">15:45</div> 
+                    <div style="color:#0d71bc;height:32px;float:left;margin-top:6px;margin-left:2px;" id="__end">15:45</div> </div> 
+                     <div style="width:90%;float:left;">
+                    <img style="width:32px;height:32px;float:left" src="../assets/images/time.svg" />
+                     <div style="color:#0d71bc;height:32px;float:left;margin-top:6px">{{ preview.address }}</div> </div>
+                     </div> <div style="float:left;padding:3%;border-top-style:solid;border-width:2px;border-color:#d4d4d4" > <p> {{ preview.message }} </p> </div>
+                    </body> 
+                    <div class="col-sm-4">
+                            <input type="button" (click)= "deleteContact(preview._id)" value="Delete"  class="btn btn-danger">
+                       </div>
+                  
+        </div>
+    </div>-->

@@ -1,0 +1,183 @@
+
+@import '~@nebular/theme/styles/global/breakpoints';
+@import '~bootstrap/scss/mixins/breakpoints';
+@import "~ng-pick-datetime/assets/style/picker.min.css";
+
+
+
+.addButton{
+    height: 50px;
+    width: 50px;
+}
+.fileName{
+    height: 50px;
+    width: 250px;
+    padding: 0.75rem 1.125rem;
+    //padding: 10px;
+    color: #181818;
+    background-color: #ffffff;
+    border: 2px solid #dadfe6;
+    font-family: Roboto;
+    border-radius: 0.17rem;
+}
+
+.input-group { position: relative; width:240px; }
+.input-group input { border:none; background:#fff; display:block; width: 100%; box-sizing: border-box }
+.input-group img { position: absolute; top: 2px; right: 5px }
+
+
+input, textarea, select {
+    display: block;
+}
+.ng-valid ng-dirty ng-touched{
+   display: disabled;
+}
+
+
+.time-view[_ngcontent-c25] .time[_ngcontent-c25] input[_ngcontent-c25] [infocus]{
+    display: disabled;
+    width: 100%;
+    background: none;
+    border: none;
+    text-align: center;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 32px;
+    font-weight: 300;
+    padding: 0px 10px;
+    text-align: center;
+    color: #1565c0;
+   
+}
+.time-view[_ngcontent-c25] .time[_ngcontent-c25] input[_ngcontent-c25]{
+    input.type{
+      -moz-user-input :disabled
+    }
+
+}
+
+input[class='ng-pristine ng-valid ng-touched']{
+    pointer-events: disabled;
+}
+
+.time-view[_ngcontent-c25] .time[_ngcontent-c25] input[_ngcontent-c25] {
+    margin: 10px;
+    color: red;
+    background-color: red;
+}
+
+
+ .time-view[_ngcontent-c25] .time[_ngcontent-c25] input[_ngcontent-c25] {
+    display: inline-block;
+    width: 100%;
+    background: red;
+    border: none;
+    text-align: center;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 32px;
+    font-weight: 300;
+    padding: 0px 10px;
+    text-align: center;
+    color: #1565c0;
+}
+
+.wc-time-sec[_ngcontent-c25] .time[_ngcontent-c25] input[_ngcontent-c25], .time-view[_ngcontent-c25] .time[_ngcontent-c25] input[_ngcontent-c25]{
+    display: inline-block;
+    width: 100%;
+    background: red;
+    border: 2px;
+    text-align: center;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 32px;
+    font-weight: 300;
+    padding: 0px 10px;
+    text-align: center;
+    color: #1565c0;
+}
+
+ng-pristine ng-valid ng-touched{
+    background-color: red;
+
+}
+
+.time-view[_ngcontent-c26] .time[_ngcontent-c26] .hour[_ngcontent-c26] ng-pristine ng-valid ng-touched[_ngcontent-c26]{
+    background-color: red;
+
+    
+}
+
+ 
+
+
+
+ .form-control{
+    padding: 0.75rem 1.125rem;
+    color: #181818;
+    background-color: #ffffff;
+    border: 2px solid #dadfe6;
+    font-family: Roboto;
+    border-radius: 0.17rem;
+    width: 50%;
+
+ }
+ .input-group img {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    color: gray;
+    background-color: lightslategray;
+}
+ 
+
+ .wc-date-container[_ngcontent-c25] {
+    float: left;
+    width: 65%;
+    height: 30px;
+    border: 1px solid grey;
+    margin-bottom: 12px;
+    font-size: 16px;
+    padding: 5px;
+    text-align: left;
+    cursor: pointer;
+    background: #fff;
+    line-height: 20px;
+}
+.DatePicker{
+    width: 236px;
+    height: 50px;
+    border-color: lightgrey;
+}
+
+:host {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    height: 40rem;
+  }
+
+  :host input {
+    width: 21.875rem;
+  }
+
+  .AngularDatePicker{
+      width: 120px;
+      height: 50px;
+      color: gray;
+  }
+
+.ng-fa-icon{
+    color: #181818;
+    background-color: #ffffff;
+    border: 2px solid #dadfe6;
+    font-family: Roboto;
+    border-radius: 9.17rem;
+    width: 144px;
+    
+    padding: 8px;
+    padding-left: 11px;
+    margin-left: 204px;
+    margin-top: 65px;
+    padding-top: 5px;
+}
